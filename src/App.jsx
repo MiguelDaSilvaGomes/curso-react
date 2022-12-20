@@ -5,7 +5,7 @@ import Header from "./componentes/header"
 import Tasks from "./componentes/Tasks";
 import AddTask from './componentes/AddTask';
 
-import TaskDetails from "./componentes/TaskDetails";
+//import TaskDetails from "./componentes/TaskDetails";
 import "./app.css";
 
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
     };
     const handleTaskAdition = (taskTitle) => {
         const newTask = [
-            ... tasks,
+            ...tasks,
         {
           title: taskTitle,
           id: Math.random(10),
@@ -50,19 +50,18 @@ const App = () => {
         <Router>
             <div className='containder'>
                     <Header />
-                       <Route 
-                       path="/" 
-                       exact
-                       render={() => (
-                        <>
-                           <AddTask handleTaskAdition={handleTaskAdition} /> 
-                           <Tasks tasks={tasks}
-                            HandleTaskClick={HandleTaskClick}
-                            handleTaskDeletion={handleTaskDeletion} />
-                        </>
-                        )}
-                    />
-                    <Route path="/:taskTitle" exact component={TaskDetails}/>
+                         <Route path="/" exact render={() => (
+                            <>
+                               <AddTask 
+                               handleTaskAdition={handleTaskAdition}
+                               />
+                               <Tasks 
+                               tasks={tasks} 
+                               HandleTaskClick={HandleTaskClick} 
+                               handleTaskDeletion={handleTaskDeletion}   
+                          />
+                            </>
+                         )}/>
                 </div> 
         </Router>
     );

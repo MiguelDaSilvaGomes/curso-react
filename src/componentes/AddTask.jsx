@@ -9,17 +9,19 @@ const AddTask = ({handleTaskAdition}) => {
        setInputData(e.target.value);
     }
     const handleAddTaskClick = () => {
-        handleTaskAdition(inputData)
-        setInputData("");
+       if(inputData === ""){
+
+          return alert('Coloque um texto')
+          
+         }else{
+            setInputData("");
+            handleTaskAdition(inputData)
+          }
     };
     
     return ( 
         <div className='add-task-container'>
-           <input onChange={handleInputChange}
-            value={inputData} 
-            className='add-task-input' 
-            type="text"
-             />
+           <input type="text" onChange={handleInputChange} value={inputData} className='add-task-input' />
            <div className='add-task-button-container'>
            <Button onClick={handleAddTaskClick}>Adicionar</Button>
            </div>
