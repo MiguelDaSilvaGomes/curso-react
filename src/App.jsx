@@ -5,7 +5,7 @@ import Header from "./componentes/header"
 import Tasks from "./componentes/Tasks";
 import AddTask from './componentes/AddTask';
 
-//import TaskDetails from "./componentes/TaskDetails";
+import TaskDetails from "./componentes/TaskDetails";
 import "./app.css";
 
 const App = () => {
@@ -62,6 +62,7 @@ const App = () => {
                           />
                             </>
                          )}/>
+                         <Route path="/:taskTitle" exact component={TaskDetails} />
                 </div> 
         </Router>
     );
